@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>D3 Basic Sample Page</title>
+<meta charset="utf-8">
+<meta name="description" content="D3 Basic Sample Page">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./d3_basic_sample.css">
+</head>
+<body>
+	<header>
+		<div id=BACK_GROUND_COLOR>
+			<span>What's back ground color?</span>&nbsp; <input type=text
+				id=color_bg value=gray />
+			<button id=bg_button>Add Color</button>
+		</div>
+	</header>
+	<p></p>
+
+	<section>
+		<nav>Menu</nav>
+		<article>
+			<p></p>
+			<div id=TEXT1 class=box_line>
+				<p>hogehoge</p>
+				<span>What's color?</span>&nbsp;<input type=text id=color_text
+					value=red />
+				<button id=text_button1>Add Color</button>
+				<p></p>
+			</div>
+			<p></p>
+			<div id=TEXT2 class=box_line>
+				<p>hogehoge</p>
+				<p>fugafuga</p>
+				<p>piyopiyo</p>
+				<button id=text_button2>Add Color</button>
+				<button id=test_button_change>Change Size</button>
+				<button id=test_button_add>Add Word</button>
+				<p></p>
+				<span>What's back ground color?</span>&nbsp; <input type=text
+					id=text_bg value=gray />
+				<button id=text_button_bg>Transition Color</button>
+				<p></p>
+				<span># result:</span>
+				<p></p>
+			</div>
+		</article>
+	</section>
+
+	<footer class=footer>©2016 hogehoge</footer>
+
+	<!--&#91;if lt IE 9&#93;>
+	<script src="http://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+	<!&#91;endif&#93;-->
+	<script src="https://code.jquery.com/jquery-2.2.0.js" charset="utf-8"></script>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script src="./d3_basic_sample.js"></script>
+</body>
+</html>

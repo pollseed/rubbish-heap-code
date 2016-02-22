@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>D3 Basic Sample Page</title>
+<meta charset="utf-8">
+<meta name="description" content="D3 Basic Sample Page">
+<meta name="author" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./d3_basic_sample.css">
+<style>
+.chart circle.little {
+	fill: #aaa;
+	stroke: #666;
+	stroke-width: 1.5px;
+}
+</style>
+</head>
+<body>
+	<header> </header>
+
+	<section>
+		<nav>Menu</nav>
+		<article>
+			<svg width="50" height="50">
+                <circle cx="25" cy="25" r="22" fill="white"
+					stroke="gray" stroke-width="2" />
+            </svg>
+		</article>
+	</section>
+
+	<a href="./d3_basic_sample.html">Back!!! Basic...</a>
+
+	<footer class=footer>©2016 hogehoge</footer>
+
+	<!--&#91;if lt IE 9&#93;>
+    <script src="http://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <!&#91;endif&#93;-->
+	<script src="https://code.jquery.com/jquery-2.2.0.js" charset="utf-8"></script>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script>
+		"use strict";
+		//var circle = svg.selectAll("circle");
+		let
+		dataset = [ 5, 10, 15, 20, 25 ];
+		d3.select("body").selectAll("p").data(dataset).enter().append("p")
+				.text(d => d*2).style("color", d => d > 15 ? "red" : "black");
+	</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+footer {
+	position: fixed;
+	bottom: 0;
+	height: 100px;
+	width: 100%;
+}
+
+div.box_line {
+	border: gray 1px ridge;
+}

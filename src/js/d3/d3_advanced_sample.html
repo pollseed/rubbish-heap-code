@@ -27,6 +27,9 @@
 					stroke="gray" stroke-width="2" />
             </svg>
 		</article>
+		<article>
+			<div></div>
+		</article>
 	</section>
 
 	<a href="./d3_basic_sample.html">Back!!! Basic...</a>
@@ -41,11 +44,19 @@
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<script>
 		"use strict";
-		//var circle = svg.selectAll("circle");
-		let
-		dataset = [ 5, 10, 15, 20, 25 ];
-		d3.select("body").selectAll("p").data(dataset).enter().append("p")
+		const DATASET1 = [ 1, 5, 10, 15, 20, 25  ],
+		   DATASET2 = [ 25, 7, 5, 26, 11, 8, 25, 14, 23, 19,
+		                 14, 11, 22, 29, 11, 13, 12, 17, 18, 10,
+		                 24, 18, 25, 9, 3  ],
+		   random_data = [];
+		   for (let i = 0; i < 25; i++) {
+			   random_data.push(Math.random() * 30);
+		   }
+		
+		d3.select("body").selectAll("p").data(DATASET1).enter().append("p")
 				.text(d => d*2).style("color", d => d > 15 ? "red" : "black");
+		d3.select("body").selectAll("div").data(DATASET1).enter().append("div")
+				.attr("class", "graph").style("height", d => d*5 + "px");
 	</script>
 </body>
 </html>

@@ -7,14 +7,7 @@
 <meta name="description" content="D3 Basic Sample Page">
 <meta name="author" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="./d3_basic_sample.css">
-<style>
-.chart circle.little {
-	fill: #aaa;
-	stroke: #666;
-	stroke-width: 1.5px;
-}
-</style>
+<link rel="stylesheet" href="./public/css/d3_advanced_sample.css">
 </head>
 <body>
 	<header> </header>
@@ -22,10 +15,16 @@
 	<section>
 		<nav>Menu</nav>
 		<article>
-			<svg width="50" height="50">
-                <circle cx="25" cy="25" r="22" fill="white"
-					stroke="gray" stroke-width="2" />
-            </svg>
+			<div></div>
+		</article>
+		<article>
+			<svg width=500 height=50>
+			<rect x=0 y=0 width=5 height=5 class=sample_rect />
+			<circle cx=250 cy=25 r=10 class=sample_circle />
+			<ellipse cx=100 cy=20 rx=100 ry=20 class=sampl_ellipse />
+			<line x1=0 y1=0 x2=500 y2=50 class=sample_line />
+			<text x=50 y=25 font-size=25 class=sample_text>hogehoge</text>
+			</svg>
 		</article>
 	</section>
 
@@ -39,13 +38,6 @@
     <!&#91;endif&#93;-->
 	<script src="https://code.jquery.com/jquery-2.2.0.js" charset="utf-8"></script>
 	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-	<script>
-		"use strict";
-		//var circle = svg.selectAll("circle");
-		let
-		dataset = [ 5, 10, 15, 20, 25 ];
-		d3.select("body").selectAll("p").data(dataset).enter().append("p")
-				.text(d => d*2).style("color", d => d > 15 ? "red" : "black");
-	</script>
+	<script src="./public/js/d3_advanced_sample.js"></script>
 </body>
 </html>

@@ -9,10 +9,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./d3_basic_sample.css">
 <style>
-.chart circle.little {
-	fill: #aaa;
-	stroke: #666;
-	stroke-width: 1.5px;
+div.graph {
+	display: inline-block;
+	width: 20px;
+	height: 75px;
+	background-color: teal;
+	margin-right: 2px;
+}
+
+svg .sample_rect {
+	fill: teal;
+}
+
+svg .sample_circle {
+	fill: teal;
+	stroke: red;
+	stroke-width: 2
+}
+
+svg .sampl_ellipse {
+	fill: teal;
+	opacity: 0.5;
+	stroke: red;
+	stroke-width: 3;
+	opacity: 0.5;
+}
+
+svg .sample_line {
+	stroke: blue;
+	strok-width: 2;
+	opacity: 0.5;
+}
+
+svg .sample_text {
+	font-family: sans-serif;
+	fill: white;
+	opacity: 0.8;
 }
 </style>
 </head>
@@ -22,13 +54,16 @@
 	<section>
 		<nav>Menu</nav>
 		<article>
-			<svg width="50" height="50">
-                <circle cx="25" cy="25" r="22" fill="white"
-					stroke="gray" stroke-width="2" />
-            </svg>
+			<div></div>
 		</article>
 		<article>
-			<div></div>
+			<svg width=500 height=50>
+			<rect x=0 y=0 width=5 height=5 class=sample_rect />
+			<circle cx=250 cy=25 r=10 class=sample_circle />
+			<ellipse cx=100 cy=20 rx=100 ry=20 class=sampl_ellipse />
+			<line x1=0 y1=0 x2=500 y2=50 class=sample_line />
+			<text x=50 y=25 font-size=25 class=sample_text>hogehoge</text>
+			</svg>
 		</article>
 	</section>
 
@@ -57,6 +92,28 @@
 				.text(d => d*2).style("color", d => d > 15 ? "red" : "black");
 		d3.select("body").selectAll("div").data(DATASET1).enter().append("div")
 				.attr("class", "graph").style("height", d => d*5 + "px");
+		
+		const svg_w = 500, svg_h = 100;
+		let svg_c = d3.select("body").append("div").append("svg");
+		svg_c.attr("width", svg_w).attr("height", svg_h);
+		let circle = svg_c.selectAll("circle").data(DATASET1).enter().append("circle");
+		circle.attr("cx", (d,i) => (i*50)+25).attr("cy", svg_h/2).attr("r", d => d)
+		  .attr("class", "sample_circle");
+		
+		const bar_padding = 1;
+		let svg_r = d3.select("body").append("div").append("svg");
+		svg_r.attr("width", svg_w).attr("height", svg_h);
+		let rect = svg_r.selectAll("rect").data(DATASET1).enter().append("rect");
+			rect.attr("x", (d,i) => i*(svg_w/DATASET1.length))
+			.attr("y", d => svg_h - d*4)
+			.attr("width", (d,i) => svg_w/DATASET1.length - bar_padding)
+			.attr("height", d => d*4)
+			.attr("fill", d => "rgb(0,0,"+(d*10)+")");
+		let text_svg = svg_r.selectAll("text").data(DATASET1).enter().append("text");
+		text_svg.text(d => d)
+		.attr("x", (d,i) => i*(svg_w/DATASET1.length) + (svg_w/DATASET1.length - bar_padding)/2)
+		.attr("y", d => svg_h - d*4 + 15)
+		.attr("class", "sample_text");
 	</script>
 </body>
 </html>

@@ -30,8 +30,16 @@ svg .sample_line {
 	opacity: 0.5;
 }
 
-svg .sample_text {
+svg>text {
 	font-family: sans-serif;
+}
+
+svg .sample_text {
 	fill: white;
 	opacity: 0.8;
+}
+
+svg .advanced_text {
+	fill: red;
+	font-size: 11px;
 }

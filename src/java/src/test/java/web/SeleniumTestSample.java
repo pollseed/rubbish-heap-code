@@ -14,11 +14,15 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class SeleniumTestSample extends TestCase {
+    private static final WebDriver[] DRIVERS;
+    static {
+        System.setProperty("webdriver.chrome.driver", "C:\\selenium\\chromedriver.exe");
+        DRIVERS = new WebDriver[] { new ChromeDriver(), new FirefoxDriver() };
+    }
+
     @Test
     public void test_request() {
-        System.setProperty("webdriver.chrome.driver", "C:\\selenium\\chromedriver.exe");
-        final WebDriver[] drivers = new WebDriver[] { new ChromeDriver(), new FirefoxDriver() };
-        Arrays.stream(drivers).forEach(driver -> testBrowser(driver).quit());
+        Arrays.stream(DRIVERS).forEach(driver -> testBrowser(driver).quit());
     }
 
     private static final WebDriver testBrowser(final WebDriver driver) {

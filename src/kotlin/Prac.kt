@@ -11,3 +11,13 @@ fun joinOptions(options: Collection<String>): String {
     sb.append("]")
     return sb.toString()
 }
+
+fun foo(name: String, number: Int, toUpperCase: Boolean) =
+        (if (toUpperCase) name.toUpperCase() else name) + number
+
+fun useFoo() = listOf(
+        foo("a", 42, false),
+        foo("b", 1, false),
+        foo("c", 42, toUpperCase = true),
+        foo(name = "d", number = 2, toUpperCase = true)
+)

@@ -21,3 +21,16 @@ fun useFoo() = listOf(
         foo("c", 42, toUpperCase = true),
         foo(name = "d", number = 2, toUpperCase = true)
 )
+
+class Person(name: String, age: Int) {
+    val name = name
+    val age = age
+    
+    override fun toString(): String {
+        return "Person(name=$name, age=$age)"
+    }
+}
+
+fun getPeople(): List<Person> {
+    return listOf(Person("Alice", 29), Person("Bob", 31))
+}
